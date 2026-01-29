@@ -32,4 +32,3 @@ elif age < 65:
     print("$16.95")
 else: 
     print("$12.95")
-
