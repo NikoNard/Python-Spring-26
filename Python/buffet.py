@@ -1,7 +1,7 @@
 """
 -----------------------------------------------------------------------
 ASSIGNMENT: 3B - The Buffet Calculator
-DATE: [Insert Date]
+DATE: [1/29/26]
 FILE: buffet.py
 -----------------------------------------------------------------------
 REQUIREMENTS:
@@ -20,15 +20,18 @@ print("This will determine your price for the buffet.")
 #input 
 age = int(input("How old are you?  "))
 
-#dollar per year of age
-amount = age * 1 
+#dollar amount
+amount_1 = 0.00
+amount_2 = age * 1 
+amount_3 = 16.95
+amount_4 = 12.95
 
 #pricing condition
 if age < 1:
-    print("FREE ($0.00)")
+    print(f"${amount_1:,.2f}")
 elif age < 12:
-    print(f"${amount:,.2f}")
+    print(f"${amount_2:,.2f}")
 elif age < 65:
-    print("$16.95")
+    print(f"${amount_3:,.2f}")
 else: 
-    print("$12.95")
+    print(f"${amount_4:,.2f}")
