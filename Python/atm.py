@@ -34,7 +34,11 @@ while True:
             else:
                 print("Please enter a positive number.")
         case 3:
-            withdrawl = float(input("How much would you like to withdrawl? (0.00)   "))
+            try:
+                withdrawl = float(input("How much would you like to withdrawl? (0.00)   "))
+            except:
+                print("Please enter a valid number.")
+                continue
             if withdrawl < 0:
                 print("Invalid")
             else:
@@ -45,7 +49,11 @@ while True:
                     balance -= withdrawl
                     print(f"Balance remaining is ${balance:,.2f}")
         case 4:
-            transfer = float(input("Please enter the amount you would like to transfer (0.00)  "))
+            try:
+                transfer = float(input("Please enter the amount you would like to transfer (0.00)  "))
+            except:
+                print("Please enter a valid number.")
+                continue
             if transfer < 0:
                 print("Invalid")
             else:
