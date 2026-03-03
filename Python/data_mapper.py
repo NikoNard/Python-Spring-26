@@ -72,4 +72,4 @@ for letter in word:
     try:
         print(NATO_ALPHABET[letter])
     except:
-        print(f"{letter} is not a valid letter in the NATO alphabet.")
+        print(f"{letter} is not a letter or punctuation in the NATO alphabet.")
