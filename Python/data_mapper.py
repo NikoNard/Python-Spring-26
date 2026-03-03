@@ -71,5 +71,5 @@ word = input("Enter word to spell: ").upper()
 for letter in word:
     try:
         print(NATO_ALPHABET[letter])
-    except:
+    except KeyError:
         print(f"{letter} is not a letter or punctuation in the NATO alphabet.")
