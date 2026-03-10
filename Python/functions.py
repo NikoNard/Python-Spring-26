@@ -3,6 +3,7 @@ demo
 """
 def options():
     #give options to order, print labels, see history
+    print("options")
 
 def menu():
     #present menu options
@@ -22,6 +23,7 @@ def order_system():
 
 def read_orders():
     # reads stored orders
+    print("read orders")
 
 def save_orders():
     #write to file
