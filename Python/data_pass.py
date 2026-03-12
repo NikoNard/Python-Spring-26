@@ -1,19 +1,33 @@
 # """
-# demo
+#     Functions demo
 # """
 
 # def greeting(name):
-#     print(f"Welcome to intro programming, {name}")
+    
+#     # pass  - DNGN( Star trek Does nothing, goes nowhere)
+#     print(f"Hello, {name}")
+    
+# def get_age(birth_year):
+#     year = 2026
+#     age = year - birth_year
+    
+#     return age
 
-#     #return status
+
+
+
+
 
 # def main():
-#     identification = input("What is your name:   ")
-#     greeting(identification)
-#     identification = "Quinn"
-#     # print(name) would not work, out of scope
-
+#     # organizes and calls functions from here!
+#     person = input("What is your name? ")
+#     year = int(input("What year were you born:  "))
+#     age = get_age(year)
+#     greeting(person)
+#     print(f"You are: {age} years old")
+    
 # main()
+
 """
 📚 ADD-100: Intro to Python | Demo: The Professional Order System
 """
