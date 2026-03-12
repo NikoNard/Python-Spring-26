@@ -1,46 +1,50 @@
 """
-demo
+-----------------------------------------------------------------------
+ASSIGNMENT 9A: THE SMOOTHIE SPRINT
+-----------------------------------------------------------------------
+[ ] 1. Header Docstring included.
+[ ] 2. Global Constants BASES and FRUITS defined as Tuples.
+[ ] 3. Professional function get_price(size) returns a float.
+[ ] 4. Professional function blend(size, base, fruit, scoops) for output.
+[ ] 5. main() function handles try/except for scoops (int).
+[ ] 6. main() calls both functions correctly.
+-----------------------------------------------------------------------
 """
-def options():
-    #give options to order, print labels, see history
-    print("options")
 
-def menu():
-    #present menu options
-    print("menu")
+# GLOBAL CONSTANTS (The Pantry)
+BASES = ("Water", "Apple Juice", "Orange Juice", "Milk")
+FRUITS = ("Strawberry", "Banana", "Mango", "Blueberry")
 
-def order_system():
-    print("Order system")
-    #take orders from customer
-    #read in past orders and display
-    #call save function
-    menu()
-    name = input("Please enter your name:  ")
-    #read file to look for last order
-    read_orders()
+def get_price(size):
+    if size =="Small":
+        return 3.00
+    elif size == "Medium":
+        return 4.00
+    else:
+        return 5.00
 
-    save_orders()
 
-def read_orders():
-    # reads stored orders
-    print("read orders")
-
-def save_orders():
-    #write to file
-    print("Save Orders")
-
-def print_labels():
-    #print on avery 2 by 3 inch labels
-    print("print labels")
-
-def calculate_cost():
-    #calculate cost (read in order)
-    print("calculate cost")
+def blend(size, base, fruit, scoops):
+    print("\n Order")
+    print(f"Size: {size}")
+    print(f"Base: {base}")
+    print(f"Fruit: {fruit}")
+    print(f"Scoops: {scoops}")
 
 def main():
-    options()
-    order_system()
-    calculate_cost()
-    print_labels()
+    print ("Welcome to the smoothie shop")
+
+    choice_size = input("Size (Small, Medium, Large):   ").title().strip()
+    choice_base = input("Select base:   ").title().strip()
+    choice_fruit = input("Select fruit:  ").title().strip()
+
+    try:
+        scoops = int(input("How many scoops?   "))
+    except ValueError:
+        print("Invalid input, defaulting to 1 scoop.")
+        scoops = 1
+    cost = get_price(choice_size)
+    blend(choice_size, choice_base, choice_fruit, scoops)
+    print(f"Total: ${cost:.2f}")
 
 main()
