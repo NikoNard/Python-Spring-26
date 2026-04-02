@@ -121,9 +121,34 @@ def edit_order():
 def delete_order():
     print("\nOrder has been canceled.")
 
-def save_data_and_ticket():
-    #saves the current order info to order_history.txt file and prints the final ticket
-    pass
+def save_data_and_ticket(fname, lname, phone_number, order, total):
+    (size, bread, protein, cheese, topping, sauce) = order
+
+    # Save to file
+    with open(ORDER_HISTORY, "a") as file:
+        file.write("ORDER:\n")
+        file.write(f"Name: {fname} {lname}\n")
+        file.write(f"Phone: {phone_number}\n")
+        file.write(f"Size: {size}\n")
+        file.write(f"Bread: {bread}\n")
+        file.write(f"Protein: {protein}\n")
+        file.write(f"Cheese: {cheese}\n")
+        file.write(f"Topping: {topping}\n")
+        file.write(f"Sauce: {sauce}\n")
+        file.write(f"Total: ${total:.2f}\n\n")
+
+    # Print ticket
+    print("\nFINAL TICKET")
+    print(f"Customer: {fname} {lname}")
+    print(f"Phone: {phone_number}")
+    print(f"Size: {size}")
+    print(f"Bread: {bread}")
+    print(f"Protein: {protein}")
+    print(f"Cheese: {cheese}")
+    print(f"Topping: {topping}")
+    print(f"Sauce: {sauce}")
+    print(f"Total: ${total:.2f}")
+    print("Order saved successfully.")
 
 def main():
 
@@ -156,6 +181,6 @@ def main():
         return
     else:
         #6 Save order and print ticket
-        save_data_and_ticket()
+        save_data_and_ticket(fname, lname, phone_number, order, total)
 
 main()
