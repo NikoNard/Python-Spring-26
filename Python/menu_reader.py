@@ -12,6 +12,9 @@ ASSIGNMENT 12A: THE CONFIGURABLE MENU & AUDITOR
 """
 
 def read_menu():
+    """ read_menu will import menu.txt and pull it into a list. We can then
+        break down the list into the specific variables and
+        dictionaries that we need. """
     menus = {}
 
     try:
@@ -23,11 +26,14 @@ def read_menu():
                 menus[category] = detail
 
         return menus
+    except FileNotFoundError:
+        print("Error, file not found")
     except Exception as e:
         print(e)
 
 
 def split_into_variables(menu_items):
+    """break the menu file into separate variables"""
 
     sizes = menu_items.get("SIZES")
     bread = menu_items.get("BREAD")
@@ -37,6 +43,7 @@ def split_into_variables(menu_items):
     return sizes, bread, protein, cheese
 
 def print_menu(sizes, bread, protein, cheese):
+    """Will print each menu"""
     print("\n MENU ")
     print(f"Sizes: {sizes}")
     print(f"Bread: {bread}")
@@ -45,6 +52,7 @@ def print_menu(sizes, bread, protein, cheese):
 
 
 def main():
+    """organize program logic"""
     menu_items = read_menu()
     sizes, bread, protein, cheese = split_into_variables(menu_items)
 
