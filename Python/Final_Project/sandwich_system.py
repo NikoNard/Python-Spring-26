@@ -1,6 +1,6 @@
 """
-ASSIGNMENT 9B: SPRINT 2 - FUNCTIONAL STUBS
-Project: The Sandwich System
+ASSIGNMENT 12B: SPRINT 5 - DATA PERSISTENCE
+Project: Sandwich Order System V5
 """
 
 #constants
