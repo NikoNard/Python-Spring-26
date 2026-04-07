@@ -1,0 +1,4 @@
+SIZES ; 6 inch, 12 inch
+BREAD ; White, Wheat, Multigrain
+PROTEIN ; Turkey, Ham, Chicken
+CHEESE ; American, Swiss, Cheddar

@@ -1,0 +1,22 @@
+ORDER:
+Name: D J
+Phone: j
+Size: 6 inch
+Bread: White
+Protein: Turkey
+Cheese: American
+Topping: Lettuce
+Sauce: Mayo
+Total: $5.00
+
+ORDER:
+Name: A A
+Phone: a
+Size: 6 inch
+Bread: White
+Protein: Turkey
+Cheese: American
+Topping: Lettuce
+Sauce: Mayo
+Total: $5.00
+
