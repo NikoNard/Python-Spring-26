@@ -3,16 +3,7 @@ ASSIGNMENT 12B: SPRINT 5 - DATA PERSISTENCE
 Project: Sandwich Order System V5
 """
 
-#constants
 ORDER_HISTORY = "order_history.txt"
-
-# SIZES = ("6 inch", "12 inch")
-# PRICES = {"6 inch": 5.00, "12 inch": 8.00}
-# BREAD = ("White", "Wheat", "Italian", "Multigrain", "Sourdough")
-# PROTEIN = ("Turkey", "Ham", "Pepperoni", "Chicken", "Steak", "None")
-# CHEESE = ("American", "Swiss", "Cheddar", "Provolone", "None")
-# TOPPINGS = ("Lettuce", "Tomato", "Onion", "Pickles", "None")
-# SAUCES = ("Mayo", "Mustard", "Ranch", "None")
 
 #functions
 def lookup():
@@ -24,9 +15,7 @@ def lookup():
     return fname, lname, phone_number
 
 def read_menu():
-    """ read_menu will import menu.txt and pull it into a list. We can then
-        break down the list into the specific variables and
-        dictionaries that we need. """
+    """ read_menu will import menu.txt and pull it into a list."""
     menus = {}
     try:
         # open and read file
@@ -66,6 +55,10 @@ def take_order(sizes, prices, bread, protein, cheese, topping, sauce):
     num = 1
     try:
         my_sizes = int(input("Please enter the number of your sandwich size:  "))-1
+        if my_sizes < 0 or my_sizes >= len(sizes):
+            print("Invalid entry, defaulting to 6 inch.")
+            my_sizes = 0
+
     except Exception as e:
         print("Invalid input, defaulting to 6 inch.")
         my_sizes = 0
@@ -77,6 +70,9 @@ def take_order(sizes, prices, bread, protein, cheese, topping, sauce):
     num = 1
     try:
         my_bread = int(input("Please enter the number of your bread:  "))-1
+        if my_bread < 0 or my_bread >= len(bread):
+            print("Invalid entry, defaulting to white bread.")
+            my_bread = 0
     except Exception as e:
         print("Invalid input, defaulting to white bread.")
         my_bread = 0
@@ -88,6 +84,9 @@ def take_order(sizes, prices, bread, protein, cheese, topping, sauce):
     num = 1
     try:
         my_protein = int(input("Please enter the number of your protein:  "))-1
+        if my_protein < 0 or my_protein >= len(protein):
+            print("Invalid entry, defaulting to turkey.")
+            my_protein = 0
     except Exception as e:
         print("Invalid input, defaulting to turkey.")
         my_protein = 0
@@ -99,6 +98,9 @@ def take_order(sizes, prices, bread, protein, cheese, topping, sauce):
     num = 1
     try:
         my_cheese = int(input("Please enter the number of your cheese:  "))-1
+        if my_cheese < 0 or my_cheese >= len(cheese):
+            print("Invalid entry, defaulting to american.")
+            my_cheese = 0
     except Exception as e:
         print("Invalid input, defaulting to american.")
         my_cheese = 0
@@ -110,6 +112,9 @@ def take_order(sizes, prices, bread, protein, cheese, topping, sauce):
     num = 1
     try:
         my_topping = int(input("Please enter the number of your topping:  "))-1
+        if my_topping < 0 or my_topping >= len(topping):
+            print("Invalid entry, defaulting to lettuce.")
+            my_topping = 0
     except Exception as e:
         print("Invalid input, defaulting to lettuce.")
         my_topping = 0
@@ -121,6 +126,9 @@ def take_order(sizes, prices, bread, protein, cheese, topping, sauce):
     num = 1
     try:
         my_sauce = int(input("Please enter the number of your sauce:  "))-1
+        if my_sauce < 0 or my_sauce >= len(sauce):
+            print("Invalid entry, defaulting to mayo.")
+            my_sauce = 0
     except Exception as e:
         print("Invalid input, defaulting to mayo.")
         my_sauce =  0
@@ -135,7 +143,7 @@ def preview_order(order):
     (sizes, bread, protein, cheese, topping, sauce) = order
 
     print("\n--- ORDER PREVIEW ---")
-    print(f"sizes: {sizes}")
+    print(f"Sizes: {sizes}")
     print(f"Bread: {bread}")
     print(f"Protein: {protein}")
     print(f"Cheese: {cheese}")
@@ -181,7 +189,7 @@ def save_data_and_ticket(fname, lname, phone_number, order, total):
     print("\nFINAL TICKET")
     print(f"Customer: {fname} {lname}")
     print(f"Phone: {phone_number}")
-    print(f"sizes: {sizes}")
+    print(f"Sizes: {sizes}")
     print(f"Bread: {bread}")
     print(f"Protein: {protein}")
     print(f"Cheese: {cheese}")

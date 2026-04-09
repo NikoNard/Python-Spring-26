@@ -20,3 +20,14 @@ Topping: Lettuce
 Sauce: Mayo
 Total: $5.00
 
+ORDER:
+Name: S S
+Phone: 2
+sizes: 12 inch
+Bread: White
+Protein: Ham
+Cheese: Provolone
+Topping: Tomato
+Sauce: None
+Total: $8.00
+

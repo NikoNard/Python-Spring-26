@@ -1,7 +1,7 @@
-COFFEE ; Americano, Tea, Matcha
-MILK ; Soy, Almond, Whole
-COFFEE ; Espresso, Americano, Latte, Cappuccino, Macchiato, Mocha, Flat White, Tea, Cocoa
-PRICES ; Small: 3.00, Medium: 4.00, Large: 5.00, Extra Large: 6.00
-MILK ; Soy, Oat, Coconut, 2%, Whole, None
-FLAVORS ; Vanilla, Caramel, Hazelnut, Mocha, Peppermint, Pumpkin Spice, Sugar Free Vanilla, None
-SHOTS ; Light: 3, Normal: 6, Heavy: 9
+SIZES;6 inch,12 inch
+PRICES;5.00,8.00
+BREAD;White,Wheat,Italian,Multigrain,Sourdough
+PROTEIN;Turkey,Ham,Pepperoni,Chicken,Steak,None
+CHEESE;American,Swiss,Cheddar,Provolone,None
+TOPPINGS;Lettuce,Tomato,Onion,Pickles,None
+SAUCES;Mayo,Mustard,Ranch,None

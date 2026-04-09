@@ -1,7 +1,0 @@
-SIZES;6 inch,12 inch
-PRICES;5.00,8.00
-BREAD;White,Wheat,Multigrain,Rye
-PROTEIN;Turkey,Ham,Roast Beef,Chicken,Tuna
-CHEESE;American,Swiss,Cheddar,Provolone
-TOPPINGS;Lettuce,Tomato,Onion,Pickles,Spinach,Cucumber
-SAUCES;Mayo,Mustard,Honey Mustard,Ranch,Chipotle
