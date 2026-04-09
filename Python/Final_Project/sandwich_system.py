@@ -6,130 +6,170 @@ Project: Sandwich Order System V5
 #constants
 ORDER_HISTORY = "order_history.txt"
 
-SIZES = ("6 inch", "12 inch")
-PRICES = {"6 inch": 5.00, "12 inch": 8.00}
-BREAD = ("White", "Wheat", "Italian", "Multigrain", "Sourdough")
-PROTEIN = ("Turkey", "Ham", "Pepperoni", "Chicken", "Steak", "None")
-CHEESE = ("American", "Swiss", "Cheddar", "Provolone", "None")
-TOPPINGS = ("Lettuce", "Tomato", "Onion", "Pickles", "None")
-SAUCES = ("Mayo", "Mustard", "Ranch", "None")
+# SIZES = ("6 inch", "12 inch")
+# PRICES = {"6 inch": 5.00, "12 inch": 8.00}
+# BREAD = ("White", "Wheat", "Italian", "Multigrain", "Sourdough")
+# PROTEIN = ("Turkey", "Ham", "Pepperoni", "Chicken", "Steak", "None")
+# CHEESE = ("American", "Swiss", "Cheddar", "Provolone", "None")
+# TOPPINGS = ("Lettuce", "Tomato", "Onion", "Pickles", "None")
+# SAUCES = ("Mayo", "Mustard", "Ranch", "None")
 
 #functions
 def lookup():
     fname = input("Please enter first name: ").strip().title()
     lname = input("Please enter last name: ").strip().title()
     phone_number = input("Please enter phone number: ")
-    customer = fname + lname
+    #customer = fname + lname
 
     return fname, lname, phone_number
 
-def take_order():
+def read_menu():
+    """ read_menu will import menu.txt and pull it into a list. We can then
+        break down the list into the specific variables and
+        dictionaries that we need. """
+    menus = {}
+    try:
+        # open and read file
+        with open("menu.txt", 'r') as file:
+            for line in file:
+                parts_of_line = line.strip().split(';')
+                category = parts_of_line[0].strip()
+                detail = parts_of_line[1].strip()
+                menus[category] = detail
+
+        # for x, y in menus.items():
+        #     print(x, y)
+        return menus
+    except Exception as e:
+        print(e)
+        
+def split_into_variables(menu_items):
+    """break the menu file into separate variables"""
+
+    sizes = menu_items.get("SIZES", "").split(',')
+    prices = menu_items.get("PRICES", "").split(',')
+    bread = menu_items.get("BREAD", "").split(',')
+    protein = menu_items.get("PROTEIN", "").split(',')
+    cheese = menu_items.get("CHEESE", "").split(',')
+    topping = menu_items.get("TOPPINGS", "").split(',')
+    sauce = menu_items.get("SAUCES", "").split(',')
+
+    return sizes, prices, bread, protein, cheese, topping, sauce
+
+def take_order(sizes, prices, bread, protein, cheese, topping, sauce):
     #collects sandwich order information: bread, protein, cheese, toppings, sauce
     num = 1
 
-    for size, price in PRICES.items():
-        print(f"{num}.) Size: {size} | Price ${price}")
+    for s in sizes:
+        print(f"{num}.) {s} | Price ${prices[num-1]}")
         num += 1
     num = 1
     try:
-        my_size = int(input("Please enter the number of your sandwich size:  "))
+        my_sizes = int(input("Please enter the number of your sandwich size:  "))-1
     except Exception as e:
         print("Invalid input, defaulting to 6 inch.")
-        my_size = 1
+        my_sizes = 0
         print(e)
 
-    for bread in BREAD:
-        print(f"{num}.)  {bread}")
+    for b in bread:
+        print(f"{num}.)  {b}")
         num += 1
     num = 1
     try:
-        my_bread = int(input("Please enter the number of your bread:  "))
+        my_bread = int(input("Please enter the number of your bread:  "))-1
     except Exception as e:
         print("Invalid input, defaulting to white bread.")
-        my_bread = 1
+        my_bread = 0
         print(e)
 
-    for protein in PROTEIN:
-        print(f"{num}.)  {protein}")
+    for p in protein:
+        print(f"{num}.)  {p}")
         num += 1
     num = 1
     try:
-        my_protein = int(input("Please enter the number of your protein:  "))
+        my_protein = int(input("Please enter the number of your protein:  "))-1
     except Exception as e:
         print("Invalid input, defaulting to turkey.")
-        my_protein = 1
+        my_protein = 0
         print(e)
 
-    for cheese in CHEESE:
-        print(f"{num}.)  {cheese}")
+    for c in cheese:
+        print(f"{num}.)  {c}")
         num += 1
     num = 1
     try:
-        my_cheese = int(input("Please enter the number of your cheese:  "))
+        my_cheese = int(input("Please enter the number of your cheese:  "))-1
     except Exception as e:
         print("Invalid input, defaulting to american.")
-        my_cheese = 1
+        my_cheese = 0
         print(e)
 
-    for topping in TOPPINGS:
-        print(f"{num}.)  {topping}")
+    for t in topping:
+        print(f"{num}.)  {t}")
         num += 1
     num = 1
     try:
-        my_topping = int(input("Please enter the number of your topping:  "))
+        my_topping = int(input("Please enter the number of your topping:  "))-1
     except Exception as e:
         print("Invalid input, defaulting to lettuce.")
-        my_topping = 1
+        my_topping = 0
         print(e)
 
-    for sauce in SAUCES:
-        print(f"{num}.)  {sauce}")
+    for s in sauce:
+        print(f"{num}.)  {s}")
         num += 1
     num = 1
     try:
-        my_sauce = int(input("Please enter the number of your sauce:  "))
+        my_sauce = int(input("Please enter the number of your sauce:  "))-1
     except Exception as e:
         print("Invalid input, defaulting to mayo.")
-        my_sauce =  1
+        my_sauce =  0
         print(e)
 
-    return (SIZES[my_size - 1], BREAD[my_bread - 1], PROTEIN[my_protein - 1], CHEESE[my_cheese - 1], TOPPINGS[my_topping - 1], SAUCES[my_sauce - 1])
+    return (sizes[my_sizes], bread[my_bread], protein[my_protein],
+            cheese[my_cheese], topping[my_topping],
+            sauce[my_sauce])
 
     
 def preview_order(order):
-    (size, bread, protein, cheese, topping, sauce) = order
+    (sizes, bread, protein, cheese, topping, sauce) = order
 
     print("\n--- ORDER PREVIEW ---")
-    print(f"Size: {size}")
+    print(f"sizes: {sizes}")
     print(f"Bread: {bread}")
     print(f"Protein: {protein}")
     print(f"Cheese: {cheese}")
     print(f"Topping: {topping}")
     print(f"Sauce: {sauce}")
 
-def calculate_total(order):
-    size = order[0]
-    total = PRICES[size]
+def calculate_total(order, prices, sizes):
+    selected_size = order[0]
+    total = 0
+    num = 0
+    for s in sizes:
+        if s == selected_size:
+            total = float(prices[num])
+        num += 1
 
     print(f"\nTotal: ${total:.2f}")
     return total
 
-def edit_order():
+def edit_order(sizes, prices, bread, protein, cheese, topping, sauce):
     print("\nEditing order")
-    return take_order()
+    return take_order(sizes, prices, bread, protein, cheese, topping, sauce)
 
 def delete_order():
     print("\nOrder has been canceled.")
 
 def save_data_and_ticket(fname, lname, phone_number, order, total):
-    (size, bread, protein, cheese, topping, sauce) = order
+    (sizes, bread, protein, cheese, topping, sauce) = order
 
     # Save to file
     with open(ORDER_HISTORY, "a") as file:
         file.write("ORDER:\n")
         file.write(f"Name: {fname} {lname}\n")
         file.write(f"Phone: {phone_number}\n")
-        file.write(f"Size: {size}\n")
+        file.write(f"sizes: {sizes}\n")
         file.write(f"Bread: {bread}\n")
         file.write(f"Protein: {protein}\n")
         file.write(f"Cheese: {cheese}\n")
@@ -141,7 +181,7 @@ def save_data_and_ticket(fname, lname, phone_number, order, total):
     print("\nFINAL TICKET")
     print(f"Customer: {fname} {lname}")
     print(f"Phone: {phone_number}")
-    print(f"Size: {size}")
+    print(f"sizes: {sizes}")
     print(f"Bread: {bread}")
     print(f"Protein: {protein}")
     print(f"Cheese: {cheese}")
@@ -154,15 +194,17 @@ def main():
 
     #1 Customer info and lookup
     fname, lname, phone_number = lookup()
+    menu_items = read_menu()
+    sizes, prices, bread, protein, cheese, topping, sauce, = split_into_variables(menu_items)
 
     #2 Taking order
-    order = take_order()
+    order = take_order(sizes, prices, bread, protein, cheese, topping, sauce)
 
     #3 Preview order
     preview_order(order)
 
     #4 Calculating total
-    total = calculate_total(order)
+    total = calculate_total(order, prices, sizes)
 
     #5 Confirm Order
     print("(C) Confirm Order")
@@ -172,9 +214,9 @@ def main():
     choice = input("Select an option: ").upper().strip()
 
     if choice == "E":
-        order = edit_order()
+        order = edit_order(sizes, prices, bread, protein, cheese, topping, sauce)
         preview_order(order)
-        total = calculate_total(order)
+        total = calculate_total(order, prices, sizes)
 
     elif choice == "D":
         delete_order()
