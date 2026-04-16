@@ -31,3 +31,27 @@ Topping: Tomato
 Sauce: None
 Total: $8.00
 
+==================================================
+Customer: N T
+Phone: 3
+Size:     6 inch
+Bread:    Wheat
+Protein:  Pepperoni
+Cheese:   Provolone
+Topping:  Tomato
+Sauce:    Mustard
+Total:    $5.00
+==================================================
+
+==================================================
+Customer: D W
+Phone: 2
+Size:     12 inch
+Bread:    Wheat
+Protein:  Ham
+Cheese:   Provolone
+Topping:  None
+Sauce:    Mustard
+Total:    $8.00
+==================================================
+
