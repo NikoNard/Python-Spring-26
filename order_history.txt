@@ -55,3 +55,15 @@ Sauce:    Mustard
 Total:    $8.00
 ==================================================
 
+==================================================
+Customer: Test Tester
+Phone: 344342
+Size:     12 inch
+Bread:    Italian
+Protein:  Turkey
+Cheese:   American
+Topping:  Onion
+Sauce:    None
+Total:    $8.00
+==================================================
+
